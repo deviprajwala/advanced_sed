@@ -1,0 +1,81 @@
+#!/bin/bash
+#this script contains the commands related to advanced sed
+
+echo "----------navigating the next command----------" >ad_sed_out.txt
+
+sed '/first /{n;d}' data.txt >>ad_sed_out.txt
+#navigating the next command
+#reads the line once the pattern "first" is matched moves to the next line and deletes it.The n command tells the sed editor to move to the next line of text in data stream without going back to the beginning. 
+
+echo -e "\n" >>ad_sed_out.txt
+
+echo "----------combining lines of text----------" >>ad_sed_out.txt
+
+sed 'N; s/line\nThis/record\nIt/' data.txt >>ad_sed_out.txt
+#combining lines of text
+#the multiline version of the next command adds the next line of text to the text already in pattern space.
+
+echo -e "\n" >>ad_sed_out.txt
+
+echo "----------navigating the multiline delete command----------" >>ad_sed_out.txt
+
+sed 'N; /line\nThis/D' data.txt >>ad_sed_out.txt
+#navigating the multiline delete command
+#if lowercase d is used it finds line and this in two different lines and deletes both but multiline delete command deletes only first line in pattern space.
+
+echo -e "\n" >>ad_sed_out.txt
+echo "----------navigating the multiline print command----------" >>ad_sed_out.txt
+sed -n 'N; /line\nThis/P' data.txt >>ad_sed_out.txt
+#navigating multiline print command
+# multiline print command prints only first line in pattern space.
+
+echo -e "\n" >>ad_sed_out.txt
+echo "----------negating a command----------" >>ad_sed_out.txt
+sed -n '/fifth/!p' data.txt >>ad_sed_out.txt
+#negating a command
+#configure a command to not to apply to a specific pattern.
+
+echo -e "\n" >>ad_sed_out.txt
+echo "----------branching----------" >>ad_sed_out.txt
+sed '{2,3 b ; s/This/That/ ; s/is/was/}' data.txt >>ad_sed_out.txt
+#branching
+#the branch command skips the substitution for the second and third line in the data sction.
+
+echo -e "\n" >>ad_sed_out.txt
+echo "----------testing----------" >>ad_sed_out.txt
+sed '{
+s/first/matched/
+t
+s/This/not matched/
+}' data.txt >>ad_sed_out.txt
+#testing
+#The testing command jumpe to a label based on the outcome of the substitution command
+
+echo -e "\n" >>ad_sed_out.txt
+
+echo "----------replacing via pattern----------" >>ad_sed_out.txt
+sed 's/.at/"&"/g' data2.txt >>ad_sed_out.txt
+#replacing via pattern
+#the matching pattern is represented by the ampersand symbol in the substitution command.
+
+echo -e "\n" >>ad_sed_out.txt
+echo "----------replacing indivisual words----------" >>ad_sed_out.txt
+sed 's/\(cat was\) sleeping/\1 dancing/' data2.txt >>ad_sed_out.txt
+#replacing indivisual words
+#parenthesis are used to define a substring component with the substitution pattern
+
+echo -e "\n" >>ad_sed_out.txt
+echo "----------insert blank lines between the lines----------" >>ad_sed_out.txt
+sed 'G' data.txt >>ad_sed_out.txt
+#to insert blank lines between the lines
+
+echo -e "\n" >>ad_sed_out.txt
+echo "----------numbering lines in a file----------" >>ad_sed_out.txt
+sed '=' data.txt >>ad_sed_out.txt
+#numbering lines in a file
+
+echo -e "\n" >>ad_sed_out.txt
+echo "----------printing last lines---------" >>ad_sed_out.txt
+sed -n '$p' data.txt >>ad_sed_out.txt
+#printing last lines
+

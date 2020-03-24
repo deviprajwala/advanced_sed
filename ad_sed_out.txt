@@ -1,0 +1,85 @@
+----------navigating the next command----------
+This is first line
+This is third line
+This is fourth line
+This is fifth line
+
+
+----------combining lines of text----------
+This is first record
+It is second line
+This is third record
+It is fourth line
+This is fifth line
+
+
+----------navigating the multiline delete command----------
+This is fifth line
+
+
+----------navigating the multiline print command----------
+This is first line
+This is third line
+
+
+----------negating a command----------
+This is first line
+This is second line
+This is third line
+This is fourth line
+
+
+----------branching----------
+That was first line
+This is second line
+This is third line
+That was fourth line
+That was fifth line
+
+
+----------testing----------
+This is matched line
+not matched is second line
+not matched is third line
+not matched is fourth line
+not matched is fifth line
+
+
+----------replacing via pattern----------
+The "cat" was sleeping in the "hat" which was on the "mat".
+The "rat" ran towards the "bat" which was near the "mat" and "sat".
+
+
+----------replacing indivisual words----------
+The cat was dancing in the hat which was on the mat.
+The rat ran towards the bat which was near the mat and sat.
+
+
+----------insert blank lines between the lines----------
+This is first line
+
+This is second line
+
+This is third line
+
+This is fourth line
+
+This is fifth line
+
+
+
+----------numbering lines in a file----------
+1
+This is first line
+2
+This is second line
+3
+This is third line
+4
+This is fourth line
+5
+This is fifth line
+
+
+----------printing last lines---------
+This is fifth line
